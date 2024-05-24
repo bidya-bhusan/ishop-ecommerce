@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    height: 96px;
+    background-color: rgb(0, 136, 255);
+}
+
+.belowSec{
+    height: 18vh;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.188);
+}
+
+.section{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(232, 232, 232);
+}
+.left{
+    margin: 10px 0 10px 10px;
+    width: 18%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+}
+
+main{
+    width: 25%;
+    height: auto;
+    background-color: white;
+}
+
+section{
+    width: 100%;
+    height: auto;
+    margin: 10px;
+}
+/* PRODUCT SECTION */
+
+.product {
+    width: auto;
+    padding: 25px 0 20px 20px ;
+    /* margin: 10px; */
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.188);
+    font-family: arial;
+    text-transform: capitalize;
+    background-color: white;
+}
+
+.product:hover h3 {
+    color: rgb(0, 136, 255);
+}
+
+.proImg {
+    width: auto;
+    height: 100%;
+    margin: 0 20px;
+
+}
+
+.proImg img {
+    height: 200px;
+}
+
+.proImg span {
+    position: relative;
+    bottom: 90%;
+    margin: 10px;
+    /* right: 10px; */
+    z-index: 9;
+    /* color: red; */
+}
+
+
+.proDec h3 {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.rate:nth-child(2) {
+    text-transform: capitalize;
+    font-family: monospace;
+    font-weight: bold;
+    color: gray;
+}
+
+.rating {
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 8px;
+    color: white;
+    border-radius: 2px;
+    background-color: rgb(0, 117, 62);
+    margin-bottom: 15px;
+}
+
+.description li{
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.proPrice span,
+.proPrice div {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.proPrice .discount {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.percentage>span.discount {
+    margin-right: 10px;
+}
+
+.proPrice .price {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.proPrice .offer {
+    font-weight: bold;
+    color: green;
+}
+
+
+
+
+/* FOOTER SECTION */
+
+.footer {
+    padding: 10px;
+    color: white;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
+}
+
+
+.footer .footerHeading:nth-child(5) {
+    padding: 0 0 0 30px;
+    border-left: 1px solid rgb(90, 90, 90);
+}
+
+.footerHeading {
+    padding-left: 10px;
+    font-family: arial;
+    text-transform: capitalize;
+}
+
+.footerHeading div,
+.footerHeading span {
+    margin-bottom: 10px;
+}
+
+.footerHeading span {
+    font-size: 13px;
+    display: block;
+    font-weight: bold;
+}
+
+.footerHeading div {
+    color: gray;
+}
+
+.ending {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background-color: black;
+    border-top: 1px solid gray;
+    font-family: Arial;
+}
+
+.ending a {
+    color: white;
+    text-decoration: none;
+}
+
+.ending a:hover {
+    text-decoration: underline;
+}
+
+.ending span {
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    color: gold;
+}
+
+.ending {
+    font-size: 10px;
+    text-transform: capitalize;
+}
