@@ -1,13 +1,46 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { useEffect, useState } from "react";
 
 export function Cart() {
     const cartItems = useSelector((state: RootState) => state.cart.cartItems);
-    // const Cart = ({ cartItems }: { cartItems: any[] }) => {
-    //     const calculateTotal = () => {
-    //         return cartItems.reduce((acc, item) => acc + item.Price * item.Quantity, 0);
-    //     };
-    // }
+    const [uniqueProducts, setUniqueProducts] = useState<any[]>([]);
+    const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
+
+    useEffect(() => {
+        const getUniqueCartItems = () => {
+            const uniqueProducts: any[] = [];
+            const productIds = new Set<number>();
+
+            cartItems.forEach((product: any) => {
+                if (!productIds.has(product.ProductId)) {
+                    uniqueProducts.push(product);
+                    productIds.add(product.ProductId);
+                }
+            });
+
+            return uniqueProducts;
+        };
+
+        const uniqueProducts = getUniqueCartItems();
+        setUniqueProducts(uniqueProducts);
+
+    }, [cartItems]);
+
+    const handleQuantityChange = (productId: number, newQuantity: number) => {
+        setQuantities({ ...quantities, [productId]: newQuantity });
+    };
+
+
+    const calculateTotal = () => {
+        let total = 0;
+        uniqueProducts.forEach((product) => {
+            const quantity = quantities[product.ProductId] || 1;
+            total += product.Price * quantity;
+        });
+        return total;
+    };
+
     return (
         <div>
             <h3>Products in Cart:</h3>
@@ -21,19 +54,23 @@ export function Cart() {
                     </tr>
                 </thead>
                 <tbody>
-                    {cartItems.map((item: any, index: number) => (
+                    {uniqueProducts.map((item: any, index: number) => (
                         <tr key={index}>
                             <td>{item.Title}</td>
                             <td>{item.Price}</td>
-                            <td>{item.Quantity}</td>
-                            <td>{item.Price * item.Quantity}</td>
+                            <td>
+                                <input
+                                    type="number"
+                                    value={quantities[item.ProductId] || 1}
+                                    onChange={(e) => handleQuantityChange(item.ProductId, parseInt(e.target.value))}
+                                />
+                            </td>
+                            <td>{(quantities[item.ProductId] || 1) * item.Price}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <div>
-                {/* <h4>Total: {` ${calculateTotal()}`}</h4> */}
-            </div>
+            <div>Total: {calculateTotal()}</div>
         </div>
     );
 }

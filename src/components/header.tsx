@@ -15,8 +15,9 @@ export function Header() {
     const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
     const handleLogout = () => {
-        removeCookie('CustomerId');
+        window.location.reload();
         navigate('/home');
+        removeCookie('CustomerId');
     };
 
     return (

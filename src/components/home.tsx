@@ -52,7 +52,12 @@ export function HomePage() {
 
     return (
         <div className="container">
-            <h3 className="text-center mb-3 mt-3">Welcome, {username}</h3>
+            {username ? (
+                <h3 className="text-center mb-3 mt-3">Welcome, {username}</h3>
+
+            ) : (
+                <h3 className="text-center mb-3 mt-3">Welcome, Guest</h3>
+            )}
             <div className="row">
                 <aside className="col-md-2">
                     <select className="form-select mb-3" name="CategoryId" onChange={(event) => LoadProducts(event.target.value)}>
@@ -61,7 +66,7 @@ export function HomePage() {
                         )}
                     </select>
                 </aside>
-                <section style={{display:"grid" , gridTemplateColumns:"repeat(auto-fill , minmax(250px  , 1fr))", gridGap:"10px"}}>
+                <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill , minmax(250px  , 1fr))", gridGap: "10px" }}>
                     {products.map(product => (
                         <div className="product-item" key={product.ProductId}>
                             <div className="card">

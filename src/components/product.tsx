@@ -13,8 +13,8 @@ export function Product() {
         axios.get(`http://127.0.0.1:2020/product/category/${categoryId}`)
             .then(response => {
                 setProducts(response.data);
-                console.log(response.data);
-                console.log(categoryId)
+                // console.log(response.data);
+                // console.log(categoryId)
             })
             .catch(error => {
                 console.error("Error fetching products:", error);

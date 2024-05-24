@@ -4,6 +4,7 @@ export interface ProductListContract{
     Price:number,
     Description:string,
     Image:string,
-    length :number
-    map:any
+    length :number,
+    map:any,
+    forEach:any
 }

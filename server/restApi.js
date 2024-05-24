@@ -215,7 +215,7 @@ app.get("/get-vendors", (req, res) => {
 
 
 // Get VEndor By Categories ID
-app.get("/get-vendor/:catid", (req, res) => {
+app.get("/get-vendor/:cartid", (req, res) => {
     var catid = parseInt(req.params.catid);
     mongoClient.connect(conStr).then(clientObject => {
         var database = clientObject.db("ishop");
