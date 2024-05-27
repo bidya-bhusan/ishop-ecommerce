@@ -29,7 +29,7 @@ function App() {
           <Route path='/admin-resister' element={<AdminResister />} />
           <Route path='/register' element={<UserRegister />} />
           <Route path='/cart' element={<Cart />}>
-              <Route path='/cheakout' element={<Cheakout/>}/>
+              {/* <Route path='/cheakout' element={<Cheakout/>}/> */}
           </Route>
           <Route path='/product/category/:categoryId' element={<Product />}>
             <Route path='productdetails/:id' element={<ProductDetail />} />
